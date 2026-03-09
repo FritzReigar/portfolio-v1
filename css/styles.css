@@ -1,0 +1,129 @@
+:root {
+  --bg-dark: #050b14;
+  --bg-card: rgba(0, 240, 255, 0.03);
+  --text-light: #d4e8f9;
+  --neon-cyan: #00f0ff;
+  --neon-glow: rgba(0, 240, 255, 0.6);
+  --border-dim: rgba(0, 240, 255, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1.6;
+}
+
+/* Geometría de Contenedores */
+.section-container {
+  max-width: 1000px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 80px 20px;
+  border-bottom: 1px dashed #1a1a1a;
+}
+
+h1 { font-size: 3rem; margin: 0 0 20px 0; }
+h2 { font-size: 1.8rem; color: var(--neon-cyan); margin-bottom: 40px; }
+h3 { font-size: 1.2rem; margin: 0 0 15px 0; }
+
+p { font-size: 1.1rem; opacity: 0.8; max-width: 70ch; }
+.subtitle { font-size: 1.3rem; color: var(--neon-cyan); opacity: 1; margin-bottom: 30px; }
+
+/* Cursor con brillo */
+.cursor {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-glow);
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Proyectos */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+.project-card {
+  border-left: 3px solid var(--neon-cyan);
+  background: var(--bg-card);
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+.project-card:hover {
+  background: rgba(0, 240, 255, 0.08);
+  transform: translateX(8px);
+}
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  margin-bottom: 15px;
+}
+.project-tags { font-size: 0.7rem; opacity: 0.5; margin: 15px 0; }
+
+/* Arsenal */
+.arsenal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.arsenal-grid article {
+  border: 1px solid var(--border-dim);
+  padding: 30px;
+  background: var(--bg-card);
+  transition: all 0.3s;
+}
+.arsenal-grid article:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px var(--neon-glow);
+}
+
+/* Data Bars */
+.data-grid { display: flex; flex-direction: column; gap: 40px; width: 100%; max-width: 1000px; }
+#contact .contact-text { max-width: none; width: 100%;}
+.progress-bar { background: rgba(255,255,255,0.05); height: 8px; width: 100%; margin: 12px 0; }
+.progress-fill { height: 100%; background: var(--neon-cyan); box-shadow: 0 0 15px var(--neon-glow); }
+small { font-size: 0.85rem; opacity: 0.6; line-height: 1.5; }
+
+/* Formulario */
+.terminal-form { margin-top: 30px; }
+.form-group { margin-bottom: 25px; }
+.form-group label { display: block; color: var(--neon-cyan); margin-bottom: 8px; font-size: 0.9rem; }
+.terminal-form input, .terminal-form textarea {
+  width: 100%; background: transparent; border: 1px solid #222; border-left: 3px solid var(--neon-cyan);
+  color: #fff; padding: 12px; font-family: inherit; outline: none;
+}
+.terminal-form input:focus, .terminal-form textarea:focus { background: rgba(0, 240, 255, 0.03); border-color: var(--neon-cyan); }
+.terminal-form textarea { height: 120px; resize: none; }
+
+/* Botones */
+.terminal-btn {
+  background: var(--neon-cyan); color: #000; border: none; padding: 15px 30px;
+  font-weight: bold; cursor: pointer; text-transform: uppercase; transition: 0.2s;
+}
+.terminal-btn:hover { background: #fff; box-shadow: 0 0 20px var(--neon-glow); }
+.terminal-btn-link { color: var(--neon-cyan); text-decoration: none; font-size: 0.8rem; font-weight: bold; }
+.terminal-btn-link:hover { text-shadow: 0 0 8px var(--neon-glow); }
+
+/* Footer */
+.footer-container {
+  padding: 60px 20px; display: flex; justify-content: space-between; align-items: flex-end;
+  font-size: 0.8rem; opacity: 0.6; flex-wrap: wrap; gap: 20px; max-width: 1000px; margin: 0 auto;
+  border-top: 1px dashed #1a1a1a;
+}
+.footer-status::before { content: ""; display: inline-block; width: 8px; height: 8px; background: var(--neon-cyan); margin-right: 10px; }
+.social-links { display: flex; gap: 20px; }
+.social-links a { color: var(--neon-cyan); text-decoration: none; }
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
